@@ -15,6 +15,7 @@
         />
         <link rel="stylesheet" href="./assets/styles.css" media="all" />
         <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="src/popzy.css">
     </head>
     <body>
         <!-- HEADER -->
@@ -398,10 +399,21 @@ modal.close();</code></pre>
             </footer>
         </div>
         <!-- /CONTAINER -->
-
+        <template id="modal-1">helo</template>
         <script src="./assets/highlight/highlight.js"></script>
+        <script src="src/popzy.js"></script>
         <script>
             hljs.initHighlightingOnLoad();
+            const modal1 = new Popzy({
+                // content: '<h1>Hello</h1>', 
+                templateId: 'modal-1',
+                // enableScrollLock: false
+                // scrollLockTarget: () => document.querySelector('.wrapper')
+            });
+
+            document.querySelector('.js-popzy-modal-1').onclick = () => {
+                modal1.open();
+            }
         </script>
     </body>
 </html>
