@@ -399,21 +399,108 @@ modal.close();</code></pre>
             </footer>
         </div>
         <!-- /CONTAINER -->
-        <template id="modal-1">helo</template>
         <script src="./assets/highlight/highlight.js"></script>
         <script src="src/popzy.js"></script>
         <script>
             hljs.initHighlightingOnLoad();
+            // Modal basic
             const modal1 = new Popzy({
-                // content: '<h1>Hello</h1>', 
-                templateId: 'modal-1',
-                // enableScrollLock: false
-                // scrollLockTarget: () => document.querySelector('.wrapper')
+                content: `
+                    <h1>Modal Basic</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                `
             });
 
             document.querySelector('.js-popzy-modal-1').onclick = () => {
                 modal1.open();
             }
+
+            // Modal with Buttons
+            const modal2 = new Popzy({
+                content: `
+                    <h1>Modal with Buttons</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                `,
+                footer: true,
+            });
+
+            document.querySelector('.js-popzy-modal-2').onclick = () => {
+                modal2.open();
+                modal2.addFooterButton('Cancel', 'modal-btn', () => {modal2.close()})
+            }
+
+            // Large Content Modal
+            const modal3 = new Popzy({
+                content: `
+                    <h1>Large Content Modal</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                `,
+            });
+
+            document.querySelector('.js-popzy-modal-3').onclick = () => {
+                modal3.open();
+            }
+
+            // Footer-Only Close Modal
+            const modal4 = new Popzy({
+                content: `
+                    <h1>Footer-Only Close Modal</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                `,
+                footer: true,
+                closeMethods: []
+            });
+
+            document.querySelector('.js-popzy-modal-5').onclick = () => {
+                modal4.open();
+                modal4.addFooterButton('Cancel', 'modal-btn', () => {modal4.close()})
+            }
+
+            // Persistent Modal (Stays in DOM)
+            const modal5 = new Popzy({
+                content: `
+                    <h1>Persistent Modal (Stays in DOM)</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                `,
+                destroyOnClose: false
+            });
+
+            document.querySelector('.js-popzy-modal-6').onclick = () => {
+                modal5.open();
+            }
+
+            // Multiple Modals
+            const modal6 = new Popzy({
+                content: `
+                    <h1>Multiple Modals</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi consequuntur distinctio doloribus quo incidunt eveniet labore sequi explicabo sed et nihil reprehenderit eius error ex, molestiae sapiente hic assumenda laboriosam.</p>
+                    <button onclick="modal1.open()">On Open Modal</button>
+                `,
+            });
+
+            document.querySelector('.js-popzy-modal-7').onclick = () => {
+                modal6.open();
+            }
+
+            // YouTube Embed Modal
+            const modal7 = new Popzy({
+                content: `
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/gjlznmG7Iso?si=IoqycW7Ctt5Oxd9y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                `,
+                destroyOnClose: false
+            });
+
+            document.querySelector('.js-popzy-modal-4').onclick = () => {
+                modal7.open();
+            }
         </script>
+        
     </body>
 </html>
